@@ -1,118 +1,378 @@
+/* Font Install */
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Vazir';
+  src: url("fonts//Vazir-Medium-FD-WOL.woff") format("woff");
+}
+
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: auto;
-    color: rgb(94, 79, 62);
-    background-color: bisque;
-    font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(16, 61, 0);
+  text-justify: auto;
+  font-family: 'Vazir', 'Arial', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.title {
-    text-align: center;
-    margin-top: 10px;
+/* Scroll Bar */
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
 }
 
-.title h1 {
-    font-size: 50px;
+::-webkit-scrollbar {
+  width: 15px;
 }
 
-.title p {
-    font-size: 20px;
-    margin: 5px;
-    margin-bottom: 40px;
+::-webkit-scrollbar-track {
+  background-color: #216a39;
 }
 
-.forum-singup {
-    border: 5px solid rgb(236, 205, 167);
-    border-radius: 40px;
-    background-color: rgb(216, 180, 136);
-    font-size: 18px;
-    padding: 20px 0 20px 0;
-    margin: 0 200px 0 200px;
-    direction: ltr;
-    text-align: center;
-    justify-items: center;
+::-webkit-scrollbar-thumb {
+  background-color: rgb(31, 83, 37);
 }
 
-.input-row {
-    display: flex;
-    margin: 0 0 8px 0;
+.pointer {
+  cursor: pointer;
 }
 
-.input-row input {
-    background-color: aliceblue;
-    border: 5px solid aliceblue;
-    border-radius: 3px;
-    inline-size: 190px;
-    padding: 2px;
-    height: auto;
-    direction: rtl;
-    margin: 0 0 0 3px;
+/* Website Grid */
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "content content"
+    "footer footer";
+  background-color: #216a39;
 }
 
-.input-row label {
-    border: 5px solid aliceblue;
-    background-color: aliceblue;
-    text-align: center;
-    font-weight: 600;
-    inline-size: 100px;
+.container>div {
+  background-color: #408456;
+  padding: 10px;
 }
 
-.input-row #first-input {
-    border-radius: 3px 10px 3px 3px;
+/* Grid Header */
+.container>div.header {
+  grid-area: header;
+  display: flex;
+  position: sticky;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  text-align: center;
+  background-color: #0e5c28;
+  color: rgb(215, 255, 228);
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.input-row #first-label {
-    border-radius: 10px 3px 3px 3px;
+.container>div.header>a {
+  text-decoration-line: none;
+  color: #42873c;
+  transition: all .4s ease-in-out;
+  text-shadow: 0 0 5px;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
-.input-row .middle {
-    border-radius: 3px;
+.container>div.header>a:hover {
+  color: #8ee087;
+  text-shadow: white 0 0 5px;
 }
 
-.input-row #last-input {
-    cursor: pointer;
-    border-radius: 3px 3px 13px 13px;
-    font-size: 18px;
-    color: rgb(94, 79, 62);
-    inline-size: 300px;
-    box-shadow: 3px 8px 4px #888888;
-    height: auto;
-    font-weight: 900;
-    margin: 0 0 10px 0;
+.container>div.header>.icon>img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: #008f13 0 0 5px;
+  transition: all .5s ease-in-out;
 }
 
-.forum-singup a {
-    display: block;
-    color: brown;
-    text-decoration: none;
-    direction: rtl;
+.container>div.header>.icon>img:hover {
+  box-shadow: white 0 0 5px;
 }
 
-.input-row #last-input:hover {
-    background-color: rgb(211, 218, 224);
-    border: 5px solid rgb(211, 218, 224);
-    box-shadow: none;
+.container>div.header>.icon {
+  display: contents;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
-.input-row #last-input:active {
-    background-color: rgb(255, 255, 255);
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: none;
+.container>div.header>.icon>select {
+  background-color: #03491a;
+  outline: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  color: #027511;
+  border: none;
+  box-shadow: #07370e 0 0 5px;
+  transition: all .5s ease-in-out;
+  font-weight: bolder;
 }
 
-.forum-singup a:active {
-    color: #fff;
+.container>div.header>.icon>select:hover {
+  color: #05390c;
+  background-color: #299e4e;
+  box-shadow: white 0 0 5px;
 }
 
-@media (max-width: 800px) {
-    .forum-singup {
-        margin: 0 50px 0 50px;
-    }
+.container>div.header>.search {
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  align-content: center;
+  background-color: #03491a;
+  border-radius: 50px;
+  transition: all .5s ease-in-out;
+  box-shadow: #07370e 0 0 5px;
+}
+
+
+.container>div.header>.search>.icon {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 25px;
+  width: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.container>div.header>.search>input {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 35px;
+  height: 100%;
+  padding: 10px 20px 10px 50px;
+  border: none;
+  background-color: transparent;
+  color: #104c23;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+}
+
+.container>div.header>.search>input::placeholder {
+  color: #104c23;
+  opacity: .5;
+}
+
+.container>div.header>.search:hover input,
+.container>div.header>.search:focus-within input {
+  outline: none;
+  width: 100%;
+  opacity: 1;
+  cursor: text;
+}
+
+.container>div.header>.search:hover,
+.container>div.header>.search:focus-within {
+  width: 200px;
+  background-color: #60a171;
+  border-color: #60a171;
+  box-shadow: 0 0 10px hsl(0, 0%, 29%), 0 0 15px #72ff6d;
+}
+
+.container>div.header>.search:hover .icon,
+.container>div.header>.search:focus-within .icon {
+  opacity: .2;
+}
+
+
+/* Grid Content */
+.container>div.content {
+  grid-area: content;
+  text-align: center;
+}
+
+/* Grid Content - Project Section */
+.container>div.content>section {
+  direction: rtl;
+  margin-bottom: 10px;
+  color: #07370e;
+}
+
+.container>div.content>section>h2 {
+  color: #05390c;
+}
+
+.projects--card {
+  direction: rtl;
+  margin: 10px;
+  padding: 10px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #1a7338;
+  height: 500px;
+  width: 250px;
+  transition: all .5s ease-in-out;
+}
+
+.projects--card h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #05390c;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.projects--card p {
+  font-size: medium;
+  color: #07370e;
+}
+
+.projects--card img {
+  margin-top: 15px;
+  border-radius: 15px;
+  height: 200px;
+  width: 200px;
+  border: #05390c solid 5px;
+  transition: all .7s ease-in-out;
+}
+
+.projects--card img:hover {
+  border-width: 0;
+  box-shadow: #6bcf62 0 0 15px 1px;
+}
+
+.projects--card:hover {
+  box-shadow: #246e1d 8px 8px;
+}
+
+.projects--card:hover .projects--card {
+  transform: scale(-60%);
+
+}
+
+.projects--card>.tech {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 5px;
+  justify-content: center;
+}
+
+.projects--card>.tech>span {
+  background: #165011;
+  color: #54b050;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+.projects--card>.tech>span:hover {
+  background: #2a9a20;
+  text-shadow: 0 0 5px;
+  box-shadow: 0 0 5px;
+}
+
+/* Grid Content - About Us */
+.container>div.content>section>div.paragraph>p {
+  margin-top: 5px;
+}
+
+.container>div.content>section>div.paragraph {
+  background-color: #0f661c;
+  height: 100%;
+  width: 700px;
+  border: #1e6a28 solid 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  text-align: left;
+  justify-self: center;
+  padding: 10px;
+  direction: ltr;
+}
+
+#per {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Grid Footer */
+.container>div.footer {
+  grid-area: footer;
+  text-align: center;
+  background-color: #0e5c28;
+  color: #14311e;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 430px) {
+  .container>div.header>a {
+    font-size: smaller;
+  }
+
+  .container>div.header>.search {
+    height: 25px;
+    width: 25px;
+  }
+
+
+  .container>div.header>.search>.icon {
+    height: 15px;
+    width: 15px;
+  }
+
+  .container>div.header>.search>input {
+    width: 90px;
+    font-size: 5px;
+  }
+
+  .container>div.header>.search:hover,
+  .container>div.header>.search:focus-within {
+    width: 90px;
+  }
+
+  .container>div.header>.icon>img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* All Animations */
+/* Add loading animation to all sections */
+div {
+  animation: loading 2s ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    margin-top: 30px;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: .9;
+  }
+
+
+  100% {
+    transform: translateX(0);
+  }
 }
