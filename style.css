@@ -45,31 +45,32 @@ html {
 
 /* Website Grid */
 .container {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "content content"
-    "footer footer";
-  background-color: #216a39;
+  min-height: max-content;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: #408456;
 }
 
 .container>div {
-  background-color: #408456;
   padding: 10px;
 }
 
 /* Grid Header */
 .container>div.header {
-  grid-area: header;
   display: flex;
-  position: sticky;
+  flex-wrap: wrap;
   backdrop-filter: blur(10px);
   width: 100%;
-  text-align: center;
   background-color: #0e5c28;
   color: rgb(215, 255, 228);
+  text-align: center;
   flex-direction: row-reverse;
   justify-content: space-between;
+  place-self: center;
   align-items: center;
 }
 
@@ -150,6 +151,8 @@ html {
 .container>div.header>.search>input {
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   opacity: 0;
   width: 35px;
   height: 100%;
@@ -197,8 +200,12 @@ html {
 
 /* Grid Content - Project Section */
 .container>div.content>section {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   direction: rtl;
-  margin-bottom: 10px;
   color: #07370e;
 }
 
@@ -206,15 +213,17 @@ html {
   color: #05390c;
 }
 
+.projects--cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .projects--card {
   direction: rtl;
   margin: 10px;
   padding: 10px;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
   border-radius: 15px;
   background-color: #1a7338;
   height: 500px;
@@ -253,8 +262,8 @@ html {
   box-shadow: #246e1d 8px 8px;
 }
 
-.projects--card:hover .projects--card {
-  transform: scale(-60%);
+.projects--card:hover {
+  transform: scale(1.05);
 
 }
 
@@ -291,7 +300,7 @@ html {
 .container>div.content>section>div.paragraph {
   background-color: #0f661c;
   height: 100%;
-  width: 700px;
+  max-width: 700px;
   border: #1e6a28 solid 10px;
   border-radius: 15px;
   margin-top: 10px;
@@ -308,7 +317,7 @@ html {
 
 /* Grid Footer */
 .container>div.footer {
-  grid-area: footer;
+  width: 100%;
   text-align: center;
   background-color: #0e5c28;
   color: #14311e;
@@ -317,35 +326,10 @@ html {
 
 
 /* Responsive */
-@media screen and (max-width: 430px) {
-  .container>div.header>a {
-    font-size: smaller;
-  }
-
-  .container>div.header>.search {
-    height: 25px;
-    width: 25px;
-  }
-
-
-  .container>div.header>.search>.icon {
-    height: 15px;
-    width: 15px;
-  }
-
-  .container>div.header>.search>input {
-    width: 90px;
-    font-size: 5px;
-  }
-
-  .container>div.header>.search:hover,
-  .container>div.header>.search:focus-within {
-    width: 90px;
-  }
-
-  .container>div.header>.icon>img {
-    width: 25px;
-    height: 25px;
+@media screen and (max-width: 600px) {
+  .container>div.header {
+    gap: 20px;
+    flex-direction: column;
   }
 }
 
